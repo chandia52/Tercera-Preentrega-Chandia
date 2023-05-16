@@ -1,0 +1,18 @@
+{% extends "AppCoder/base.html" %}
+
+{% block contenido %}
+<section>
+  <div>
+    <h1>Lista de Baterias</h1>
+    <a href="{% url 'crear_bateria' %}">Crear Bateria</a>
+    <br><br>
+    {% block contenido_baterias %}
+    {% endblock contenido_baterias %}
+    <ul>
+    {% for bateria in baterias %}
+      <br><br> <li>Nombre: {{ bateria.nombre }}, \n Precio: $ {{ bateria.precio }}, Descripcion: {{bateria.descripcion}}</li>
+    {% endfor %}
+    </ul>
+  </div>
+</section>
+{% endblock contenido %}

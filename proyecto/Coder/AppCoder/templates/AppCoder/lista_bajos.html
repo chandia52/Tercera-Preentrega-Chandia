@@ -1,0 +1,18 @@
+{% extends "AppCoder/base.html" %}
+
+{% block contenido %}
+<section>
+  <div>
+    <h1>Lista de Bajos</h1>
+    <a href="{% url 'crear_bajo' %}">Crear Bajo</a>
+    <br><br>
+    {% block contenido_bajos %}
+    {% endblock contenido_bajos %}
+    <ul>
+    {% for bajo in bajos %}
+      <br><br> <li>Nombre: {{ bajo.nombre }}, Precio: $ {{ bajo.precio }}, Descripcion: {{bajo.descripcion}}</li>
+    {% endfor %}
+    </ul>
+  </div>
+</section>
+{% endblock contenido %}

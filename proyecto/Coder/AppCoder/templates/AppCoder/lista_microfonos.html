@@ -1,0 +1,18 @@
+{% extends "AppCoder/base.html" %}
+
+{% block contenido %}
+<section>
+  <div>
+    <h1>Lista de Microfonos</h1>
+    <a href="{% url 'crear_microfono' %}">Crear Microfono</a>
+    <br><br>
+    {% block contenido_microfonos %}
+    {% endblock contenido_microfonos %}
+    <ul>
+    {% for microfono in microfonos %}
+      <br><br> <li>Nombre: {{ microfono.nombre }}, Precio: $ {{ microfono.precio }}, Descripcion: {{microfono.descripcion}}</li>
+    {% endfor %}
+    </ul>
+  </div>
+</section>
+{% endblock contenido %}
