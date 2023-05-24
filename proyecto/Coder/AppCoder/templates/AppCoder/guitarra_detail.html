@@ -1,0 +1,19 @@
+{% extends "AppCoder/base.html" %}
+
+{% block contenido %}
+
+<p>
+ <strong>Nombre:</strong> {{object.nombre}}
+</p>
+<p>
+ <strong>Precio:</strong> {{object.precio}}
+</p>
+<p>
+ <strong>Descripcion:</strong> {{object.descripcion}}
+</p>
+<p>
+
+<br>
+<a href="{% url 'lista_guitarras' %}">Volver lista</a>
+
+{% endblock contenido %}

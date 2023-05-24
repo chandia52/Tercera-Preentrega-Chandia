@@ -13,10 +13,41 @@
         <input type="submit" value="Buscar Guitarras ">
       </form>
       <br>
-    {% for guitarra in guitarras %}
-      <br><br> <li>Nombre: {{ guitarra.nombre }}, Precio: $ {{ guitarra.precio }}, Descripcion: {{guitarra.descripcion}}</li>
-    {% endfor %}
-    </ul>
-  </div>
-</section>
-{% endblock contenido %}
+      
+      <table class="table">
+        <tbody>
+          <tr>
+            
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Precio</th>
+            <th>Descripcion</th>
+            <th>Disponibilidad</th>
+          </tr>
+          {% for guitarra in guitarras %}
+          <tr>
+            <td>{{ guitarra.ID}}</td>
+            <td>{{ guitarra.nombre }}</td>
+            <td>{{ guitarra.precio }}</td>
+            <td>{{ guitarra.descripcion }}</td>
+            <td>{{ guitarra.disponibilidad }}</td>
+            <td>
+              <a href="{% url 'ver_guitarra' guitarra.id %}">Ver</a>
+            </td>
+            <td>
+              <a href="{% url 'editar_guitarra' guitarra.id %}">Editar</a>
+            </td>
+            <td>
+              <a href="{% url 'eliminar_guitarra' guitarra.id %}">
+                <i class="bi bi-trash"></i>
+              </a>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+   
+    </div>
+   </section>
+   {% endblock contenido %}
+   
