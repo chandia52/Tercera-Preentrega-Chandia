@@ -1,5 +1,6 @@
 {% extends "AppCoder/base.html" %}
 
 {% block contenido %}
-<h1>Bienvenidos {{user.first_name}} a nuestra Comunidad de Musicos Argentinos</h1>
+<h1>Bienvenido/a {{user.first_name}}, a nuestra Comunidad Argentina de Musicos</h1>
+<img src="{{ user.avatar.imagen.url }}" />
 {% endblock contenido %}

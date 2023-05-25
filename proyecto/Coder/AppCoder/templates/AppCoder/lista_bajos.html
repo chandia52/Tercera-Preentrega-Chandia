@@ -40,15 +40,16 @@
             {% if user == bajo.creador %}
             <form action="{% url 'eliminar_bajo' bajo.id %}" method="post">
               {% csrf_token %}
-              <input type="submit" value="eliminar"/>
+              <input type="submit" value="Eliminar"/>
             </form
             {% endif %}
+            </a>
           </td>
         </tr>
         {% endfor %}
       </tbody>
     </table>
-
+ 
   </div>
-</section>
-{% endblock contenido %}
+ </section>
+ {% endblock contenido %}

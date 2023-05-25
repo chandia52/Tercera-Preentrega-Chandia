@@ -37,8 +37,12 @@
             <a href="{% url 'editar_microfono' microfono.id %}">Editar</a>
           </td>
           <td>
-            <a href="{% url 'eliminar_microfono' microfono.id %}">
-              <i class="bi bi-trash"></i>
+            {% if user == microfono.creador %}
+            <form action="{% url 'eliminar_microfono' microfono.id %}" method="post">
+              {% csrf_token %}
+              <input type="submit" value="Eliminar"/>
+            </form
+            {% endif %}
             </a>
           </td>
         </tr>

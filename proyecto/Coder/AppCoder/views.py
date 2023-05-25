@@ -63,9 +63,9 @@ def crear_guitarra(request):
            nombre = data["nombre"]
            precio = data["precio"]
            descripcion = data["descripcion"]
-           disponibilidad = data["disponibilidad"]
            creador = request.user
-           guitarra = Guitarra(nombre=nombre, precio=precio,descripcion=descripcion,disponibilidad=disponibilidad)  # lo crean solo en RAM
+           disponibilidad = data["disponibilidad"]
+           guitarra = Guitarra(nombre=nombre, precio=precio,descripcion=descripcion,disponibilidad=disponibilidad,creador=creador)  # lo crean solo en RAM
            guitarra.save()  # Lo guardan en la Base de datos
 
            # Redirecciono al guitarra a la lista de guitarras
@@ -89,10 +89,10 @@ def crear_bajo(request):
            data = formulario.cleaned_data  # es un diccionario
            nombre = data["nombre"]
            precio = data["precio"]
+           creador = request.user          
            descripcion = data["descripcion"]
            disponibilidad = data["disponibilidad"]
-           creador = request.user
-           bajo = Bajos(nombre=nombre, precio=precio,descripcion=descripcion,disponibilidad=disponibilidad)  # lo crean solo en RAM
+           bajo = Bajos(nombre=nombre, precio=precio,descripcion=descripcion,disponibilidad=disponibilidad,creador=creador)  # lo crean solo en RAM
            bajo.save()  # Lo guardan en la Base de datos
 
            # Redirecciono al guitarra a la lista de bajos
@@ -116,10 +116,10 @@ def crear_microfono(request):
            data = formulario.cleaned_data  # es un diccionario
            nombre = data["nombre"]
            precio = data["precio"]
+           creador = request.user
            descripcion = data["descripcion"]
            disponibilidad = data["disponibilidad"]
-           creador = request.user
-           microfono = Microfonos(nombre=nombre, precio=precio,descripcion=descripcion,disponibilidad=disponibilidad)  # lo crean solo en RAM
+           microfono = Microfonos(nombre=nombre, precio=precio,descripcion=descripcion,disponibilidad=disponibilidad,creador=creador)  # lo crean solo en RAM
            microfono.save()  # Lo guardan en la Base de datos
 
            # Redirecciono al guitarra a la lista de microfonos
@@ -143,10 +143,10 @@ def crear_bateria(request):
            data = formulario.cleaned_data  # es un diccionario
            nombre = data["nombre"]
            precio = data["precio"]
+           creador = request.user
            descripcion = data["descripcion"]
            disponibilidad = data["disponibilidad"]
-           creador = request.user
-           bateria = Baterias(nombre=nombre, precio=precio,descripcion=descripcion,disponibilidad=disponibilidad)  # lo crean solo en RAM
+           bateria = Baterias(nombre=nombre, precio=precio,descripcion=descripcion,disponibilidad=disponibilidad,creador=creador)  # lo crean solo en RAM
            bateria.save()  # Lo guardan en la Base de datos
 
            # Redirecciono al guitarra a la lista de bateria
@@ -265,34 +265,35 @@ def listar_baterias(request):
    )
    return http_response
 
+@login_required
 def eliminar_guitarra(request, id):
    guitarra = Guitarra.objects.get(id=id)
-   if request.method == "GET":
+   if request.method == "POST":
        guitarra.delete()
        url_exitosa = reverse('lista_guitarras')
        return redirect(url_exitosa)
-   
+@login_required  
 def eliminar_bajo(request, id):
    bajo = Bajos.objects.get(id=id)
-   if request.method == "GET":
+   if request.method == "POST":
        bajo.delete()
        url_exitosa = reverse('lista_bajos')
        return redirect(url_exitosa)
-   
+@login_required   
 def eliminar_microfono(request, id):
    microfono = Microfonos.objects.get(id=id)
-   if request.method == "GET":
+   if request.method == "POST":
        microfono.delete()
        url_exitosa = reverse('lista_microfonos')
        return redirect(url_exitosa)
-   
+@login_required   
 def eliminar_bateria(request, id):
    bateria = Baterias.objects.get(id=id)
-   if request.method == "GET":
+   if request.method == "POST":
        bateria.delete()
        url_exitosa = reverse('lista_baterias')
        return redirect(url_exitosa)
-   
+@login_required  
 def editar_guitarra(request, id):
    guitarra = Guitarra.objects.get(id=id)
    if request.method == "POST":
@@ -318,7 +319,7 @@ def editar_guitarra(request, id):
        template_name='AppCoder/formulario_guitarra.html',
        context={'formulario': formulario},
    )
-   
+@login_required   
 def editar_bajo(request, id):
    bajo = Bajos.objects.get(id=id)
    if request.method == "POST":
@@ -338,12 +339,13 @@ def editar_bajo(request, id):
            'precio': bajo.precio,
            'descripcion': bajo.descripcion,
        }
-       formulario = GuitarraFormulario(initial=inicial)
+       formulario = BajoFormulario(initial=inicial)
    return render(
        request=request,
        template_name='AppCoder/formulario_bajo.html',
        context={'formulario': formulario},
    )
+@login_required
 def editar_microfono(request, id):
    microfono = Microfonos.objects.get(id=id)
    if request.method == "POST":
@@ -369,6 +371,7 @@ def editar_microfono(request, id):
        template_name='AppCoder/formulario_microfono.html',
        context={'formulario': formulario},
    )
+@login_required
 def editar_bateria(request, id):
    bateria = Baterias.objects.get(id=id)
    if request.method == "POST":
@@ -431,20 +434,26 @@ class GuitarraCreateView(CreateView):
    fields = ('Nombre', 'Precio', 'Descripcion', 'Disponibilidiad')
    success_url = reverse_lazy('lista_guitarras')
 
+
 class BajoCreateView(CreateView):
    model = Bajos
    fields = ('Nombre', 'Precio', 'Descripcion', 'Disponibilidiad')
    success_url = reverse_lazy('lista_bajos')
-
 class BateriaCreateView(CreateView):
    model = Baterias
    fields = ('Nombre', 'Precio', 'Descripcion', 'Disponibilidiad')
    success_url = reverse_lazy('lista_baterias')
+   def form_valid(self, form):
+        form.instance.creador = self.request.user
+        return super().form_valid(form)
 
 class MicrofonoCreateView(CreateView):
    model = Microfonos
    fields = ('Nombre', 'Precio', 'Descripcion', 'Disponibilidiad')
    success_url = reverse_lazy('lista_microfonos')
+   def form_valid(self, form):
+        form.instance.creador = self.request.user
+        return super().form_valid(form)
 
 class GuitarraUpdateView(UpdateView):
    model = Guitarra

@@ -37,13 +37,12 @@
             <a href="{% url 'editar_bateria' bateria.id %}">Editar</a>
           </td>
           <td>
-            {% if user == curso.creador %}
-            <form action="{% url 'eliminar_curso' curso.id %}" method="post">
+            {% if user == bateria.creador %}
+            <form action="{% url 'eliminar_bateria' bateria.id %}" method="post">
               {% csrf_token %}
-              <input type="submit" value="eliminar"/>
+              <input type="submit" value="Eliminar"/>
             </form
             {% endif %}
-            <i class="bi bi-trash"></i>
             </a>
           </td>
         </tr>
