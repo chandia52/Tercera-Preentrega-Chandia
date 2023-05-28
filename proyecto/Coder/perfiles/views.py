@@ -13,6 +13,7 @@ from perfiles.models import Avatar
 
 
 
+
 def registro(request):
    if request.method == "POST":
        formulario = UserRegisterForm(request.POST)
@@ -81,3 +82,4 @@ def agregar_avatar(request):
       template_name="perfiles/formulario_avatar.html",
       context={'form': formulario},
   )
+

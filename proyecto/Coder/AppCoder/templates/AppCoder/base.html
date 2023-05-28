@@ -31,9 +31,9 @@
               <a class="navbar-brand" href="{% url 'lista_baterias' %}">Baterias</a>
               <a class="navbar-brand" href="{% url 'lista_microfonos' %}">Microfonos</a>
               {% if user.is_authenticated %}
-       <div class="dropdown">
-           <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-               <div style="display: inline-flex;">
+                <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                <div style="display: inline-flex;">
                    <span>{{ user.username }}</span>
                </div>
            </button>
@@ -87,7 +87,9 @@
                         <ul class="list-inline mb-2">
                             <li class="list-inline-item"><a href="#!">Ayuda</a></li>
                             <li class="list-inline-item">⋅</li>
-                            <li class="list-inline-item"><a href="#!">Contacto</a></li>
+                            <li class="list-inline-item"><a href="https://api.whatsapp.com/send/?phone=5492613031547&text&type=phone_number&app_absent=0">Contacto</a></li>
+                            <li class="list-inline-item">⋅</li>
+                            <li class="list-inline-item"><a href="about">Acerca de Mi</a></li>
                       
                         </ul>
                         <p class="text-muted small mb-4 mb-lg-0">&copy; Comunidad Argentina de Musicos</p>

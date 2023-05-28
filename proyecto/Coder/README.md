@@ -1,19 +1,24 @@
 # Coder
 
-Proyecto de AppCoder.. 
-Esta Aplicacion hace representacion a un Blog, donde la gente puede ingresar y publicar sus instrumentos musicales, dependiendo de que quieran vender o permutar, tendran su propia seccion para publicar.. 
+Proyecto AppCoder 
 
-Tenemos 4 clases, Guitarras, Bajos, Baterias y Microfonos, donde a cada uno se puede ingresar libremente..
+Esta aplicación simula una pagina de compra y venta de instrumentos musicales, donde podemos encontrar Guitarras, Bajos, Baterias y Microfonos.. Los podremos ver a cada uno en su propia seccion..
 
-En cada clase, podemos agregar nuestro producto en su propia seccion. Cada seccion tiene la funcion de crear su instrumento, una vez ingresado, deberemos proporcionar cierta cantidad de datos; Nombre (donde podra colocarse su marca y su modelo), Precio (donde deberan ingresarse solo numeros, para poder especificar el precio de dicho producto), Descripcion:(Que en este campo podran ingresarse una descripcion del producto) y Disponibilidad: (Que para poder publicarlo debera ser seleccionada si o si, valga la redundancia)
+Tenemos la posibilidad de registrarnos en la pagina, seleccionando el boton Crear Nueva Cuenta, en la parte superior derecha, donde se nos solicitara nuestros datos, un nombre de usuario y una contraseña.. Una vez registrados podemos loguearnos en la sección Iniciar Sesión, para ello se nos solicitara nuestro usuario registrado y nuestra contraseña.. En caso de ser incorrectos o no estar en el sistema, el sistema no concederá acceso al sistema logueado... 
 
-Una vez llenado los campos requeridos, deberemos seleccionar Enviar, lo que producira que estos archivos puedan ser cargados a la BBDD.. Luego sera publicado en el feed de nuestra seccion de instrumentos.. 
+Una vez logueados en la pagina podremos:
 
-En el caso de guitarra, podemos realizar una busqueda.. Supongamos que deseamos comprar una guitarra marca Schecter.. La pagina al tener tanta informacion cargada, puede llegar a ser tedioso tener que buscar entre todos los productos nuestra Guitarra Schecter.. De esta manera, en nuestro feed, podremos realizar la busqueda por nombre de nuestra guitarra.. 
+Editar nuestra informacion personal en la parte superior derecha, donde se encuentra nuestro nombre de usuario; Agregar un avatar como foto de perfil; Y cerrar sesión.. 
 
-(P.D: Queria implementar la busqueda de instrumentos en todas las clases, al igual que el CRUD, pero he tenido muy poco tiempo, para realizarlo.. Pero al menos fueron cumplidas todas las consignias del proyecto, incluyendo la herencia HTML...
-P.D2: Tambien queria realizar una pagina que tuviera un poco mas de dinamismo, pero al momento de importar ciertas plantillas me encontre con formatos de archivos, los cuales desconocia totalmente como incorporarlos a mis html)
+Si estamos logueados, podremos crear cualquier instrumento, en su respectiva sección instrumental, clickeando la opcion "Crear {instrumento que deseamos crear}.. Luego se nos pedira el nombre del instrumento, el precio, una descripcion y validar la opcion de disponibilidad del producto.. Una vez completado toda la información solicitada, se agregara en la lista respectiva de nuestros instrumentos pudiendo visualizarla cada vez que lo deseemos.. 
 
-Gracias y espero su pronta aprobacion (?)
+En caso de que se desee, el creador del articulo tendrá la posibilidad de Editar y Eliminar los articulos que el haya creado..
 
-Aca realice el reinicio del commit 
+Los usuarios que no se hayan logueado en al pagina, solamente tendran acceso a las listas para ver los instrumentos disponibles.. En caso que lo deseen editar, se les solicitara sus credenciales de ingreso, en caso de que no sea un articulo que el hubiese creado, se le denegara el editado.. 
+
+Todo aquel con acceso a la pagina podra ver y buscar los archivos dentro de la lista de instrumentos publicados, sin necesidad de estar logueados.. 
+
+La busqueda se encuentra disponible en cada una de las listas, facilitando mucho en caso de que sean demasiados instrumentos y alguien busque uno en especifico, esto nos filtrara la busqueda solamente por nombres.. 
+
+En la parte inferior, podemos encontrar nuestras redes sociales cada una con su respectivo ícono.. Al igual que el contacto con el soporte de la pagina.. Tambien podemos encontrar la seccion Acerca de mi donde podremos encontrar una breve biografia del creador de la pagina..
+

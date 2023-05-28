@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include 
-from proyecto.views import inicio
+from proyecto.views import inicio,acerca_de_mi
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -25,5 +25,6 @@ urlpatterns = [
     path('admin/', admin.site.urls), 
     path("instrumentos/",include("AppCoder.urls")),
     path("perfiles/",include("perfiles.urls")),
+    path('about/',acerca_de_mi,)
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

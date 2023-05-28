@@ -9,6 +9,7 @@ from AppCoder.views import listar_guitarras, listar_bajos,listar_baterias,listar
     MicrofonoCreateView,MicrofonoDeleteView,MicrofonoDetailView,MicrofonoListView,MicrofonoUpdateView,\
     BajoCreateView,BajoDeleteView,BajoDetailView,BajoListView,BajoUpdateView,buscar_bajo,buscar_bateria,buscar_microfono
 
+
     
 
 
@@ -54,6 +55,7 @@ urlpatterns = [
     path('crear-microfono/', MicrofonoCreateView.as_view(), name="crear_microfono"),
     path('editar-microfono/<int:pk>/', MicrofonoUpdateView.as_view(), name="editar_microfono"),
     path('eliminar-microfono/<int:pk>/', MicrofonoDeleteView.as_view(), name="eliminar_microfono"),
+    
 ]
   
     

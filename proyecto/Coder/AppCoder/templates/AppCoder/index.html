@@ -1,6 +1,10 @@
+
 {% extends "AppCoder/base.html" %}
 
 {% block contenido %}
 <h1>Bienvenido/a {{user.first_name}}, a nuestra Comunidad Argentina de Musicos</h1>
-<img src="{{ user.avatar.imagen.url }}" />
-{% endblock contenido %}
+    {%if user.is_authenticated%}
+    <img src="{{ user.avatar.imagen.url }}" width="720" height="1080" alt="" />
+    {%endif%}
+    {% endblock contenido %}
+

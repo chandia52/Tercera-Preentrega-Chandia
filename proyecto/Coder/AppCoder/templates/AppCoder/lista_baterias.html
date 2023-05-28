@@ -34,7 +34,9 @@
             <a href="{% url 'ver_bateria' bateria.id %}">Ver</a>
           </td>
           <td>
+            {% if user == bateria.creador %}
             <a href="{% url 'editar_bateria' bateria.id %}">Editar</a>
+            {% endif %}
           </td>
           <td>
             {% if user == bateria.creador %}

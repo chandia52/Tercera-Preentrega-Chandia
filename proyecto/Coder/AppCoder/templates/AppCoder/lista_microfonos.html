@@ -34,11 +34,13 @@
             <a href="{% url 'ver_microfono' microfono.id %}">Ver</a>
           </td>
           <td>
+            {% if user == microfono.creador %}
             <a href="{% url 'editar_microfono' microfono.id %}">Editar</a>
           </td>
           <td>
             {% if user == microfono.creador %}
             <form action="{% url 'eliminar_microfono' microfono.id %}" method="post">
+              {%endif%}
               {% csrf_token %}
               <input type="submit" value="Eliminar"/>
             </form

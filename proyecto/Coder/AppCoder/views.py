@@ -490,3 +490,5 @@ class BateriaDeleteView(DeleteView):
 class MicrofonoDeleteView(DeleteView):
    model = Microfonos
    success_url = reverse_lazy('lista_microfonos')
+
+

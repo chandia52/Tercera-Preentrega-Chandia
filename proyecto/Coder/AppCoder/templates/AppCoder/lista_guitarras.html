@@ -35,7 +35,9 @@
               <a href="{% url 'ver_guitarra' guitarra.id %}">Ver</a>
             </td>
             <td>
+              {% if user == guitarra.creador %}
               <a href="{% url 'editar_guitarra' guitarra.id %}">Editar</a>
+              {% endif%}
             </td>
             <td>
               {% if user == guitarra.creador %}
