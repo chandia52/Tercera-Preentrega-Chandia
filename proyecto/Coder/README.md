@@ -22,3 +22,4 @@ La busqueda se encuentra disponible en cada una de las listas, facilitando mucho
 
 En la parte inferior, podemos encontrar nuestras redes sociales cada una con su respectivo ícono.. Al igual que el contacto con el soporte de la pagina.. Tambien podemos encontrar la seccion Acerca de mi donde podremos encontrar una breve biografia del creador de la pagina..
 
+Creacion por: Nicolas Chandia
